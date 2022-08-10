@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -47,7 +45,8 @@ public class Main {
         }
     }
 
-    public static void menu(List<String> list) {
+    public static void menu() {
+        List<String> list = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         int operation;
 
@@ -85,7 +84,6 @@ public class Main {
                 case 2:
                     if (list.isEmpty()) {
                         System.out.println("Нет покупок.");
-                        continue;
                     } else {
                         print(list);
                     }
@@ -100,9 +98,6 @@ public class Main {
                     System.out.println("Какую хотите удалить? Введите номер или название.");
                     String namePurchase = scanner.nextLine();
                     boolean result = delete(namePurchase, list);
-                    if (!result) {
-                        continue;
-                    }
                     break;
                 case 4:
                     System.out.println("Введите текст для поиска: ");
@@ -115,7 +110,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        menu(list);
+        menu();
     }
 }
